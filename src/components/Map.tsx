@@ -19,15 +19,36 @@ const ContactoYMapa = () => {
   const googleMapsDirectionsUrl = `https://www.google.com/maps/place/CARNITAS+CORTES/@19.7161799,-101.1709329,17z/data=!4m6!3m5!1s0x842d0fe64227a87d:0x41bf4a7460905920!8m2!3d19.7161629!4d-101.170983!16s%2Fg%2F11fs07s3rf?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D`;
   const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.23456789!2d-101.1709329!3d19.7161799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0f9a5950f577%3A0x1f93f2f85aee935c!2sOBRADOR%20CORT%C3%89S%20Industrializadora%20Michoacana%20de%20Carne%20S.A.%20de%20C.V.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx`;
 
-  const handleSubmit = async (e) => {
+  interface FormData {
+    nombre: string;
+    telefono: string;
+    interes: string;
+    mensaje: string;
+    _honey?: string;
+  }
+
+  interface FormSubmitPayload extends FormData {
+    _subject: string;
+    _template: string;
+    _captcha: string;
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage("");
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries()) as unknown as FormData;
 
     try {
+      const payload: FormSubmitPayload = {
+        ...data,
+        _subject: `Nueva Cotización: ${data.nombre}`,
+        _template: "table",
+        _captcha: "false",
+      };
+
       const response = await fetch(
         `https://formsubmit.co/ajax/${EMAIL_DESTINO}`,
         {
@@ -36,18 +57,13 @@ const ContactoYMapa = () => {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify({
-            ...data,
-            _subject: `Nueva Cotización: ${data.nombre}`,
-            _template: "table",
-            _captcha: "false",
-          }),
+          body: JSON.stringify(payload),
         }
       );
 
       if (response.ok) {
         setIsSuccess(true);
-        e.target.reset();
+        e.currentTarget.reset();
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
         throw new Error("Error al enviar el correo");
