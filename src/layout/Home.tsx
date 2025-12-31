@@ -3,9 +3,10 @@ import Hero from "./Hero";
 import Services from "../components/Services";
 import AboutUs from "../components/AboutUs";
 import ContactoYMapa from "../components/Map";
-import Galery from "../components/Galery";
+// import Galery from "../components/Galery"; 
 import CarnitasSection from "../components/CarnitasSection";
 import FeaturesSection from "../components/FeaturesSection";
+import MasVendidos from "../components/MasVendidos";
 
 const Home = () => {
   return (
@@ -20,7 +21,7 @@ const Home = () => {
       <Services />
       <CarnitasSection />
       <FeaturesSection />
-      <Galery />
+      <MasVendidos />
       <ContactoYMapa />
     </motion.div>
   );

@@ -31,7 +31,7 @@ const Contacto = () => {
           </span>
         </h1>
         <p className="text-slate-500 font-medium text-lg">
-          Ya sea por un taco o por una canal completa, aquí te atendemos.
+          Ya sea por un taco o por una pieza completa, aquí te atendemos.
         </p>
       </motion.section>
 
