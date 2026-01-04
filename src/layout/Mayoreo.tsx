@@ -9,7 +9,7 @@ import {
   Package,
   User,
 } from "lucide-react";
-import ImagenCloudinary from "../hooks/imageCloudinary"; // Ajusta la ruta si es necesario
+import ImagenCloudinary from "../hooks/imageCloudinary";
 import { useEffect, useState } from "react";
 import PasosCompra from "../components/PasosCompra";
 import MayoreoCatalog from "../components/CatalogoCarnes";
@@ -93,7 +93,7 @@ const Mayoreo = () => {
       </section>
 
       {/* --------------------------------------------------------------------------
-          C. PROPUESTA DE VALOR (ICONS)
+          C. PROPUESTA DE VALOR
           (Lo puse antes del catálogo para generar confianza primero)
       -------------------------------------------------------------------------- */}
       <section className="py-20 bg-white">
@@ -180,19 +180,8 @@ const Mayoreo = () => {
           </div>
         </div>
       </section>
-
-      {/* --------------------------------------------------------------------------
-          B. EL CATÁLOGO DE CORTES (TABS)
-      -------------------------------------------------------------------------- */}
       <MayoreoCatalog />
-      {/* --------------------------------------------------------------------------
-          D. PROCESO DE ALTA
-      -------------------------------------------------------------------------- */}
       <PasosCompra />
-
-      {/* --------------------------------------------------------------------------
-          E. FORMULARIO DE COTIZACIÓN PROFESIONAL
-      -------------------------------------------------------------------------- */}
       <section
         id="cotizacion"
         className="py-24 bg-slate-50 relative overflow-hidden"
@@ -211,7 +200,6 @@ const Mayoreo = () => {
 
             <div className="p-8 md:p-12">
               <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Nombre Negocio */}
                 <div className="col-span-1 md:col-span-2">
                   <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
                     <Package size={14} /> Nombre Comercial del Negocio
@@ -223,7 +211,6 @@ const Mayoreo = () => {
                   />
                 </div>
 
-                {/* Nombre Contacto */}
                 <div>
                   <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
                     <User size={14} /> Nombre del Encargado
@@ -235,7 +222,6 @@ const Mayoreo = () => {
                   />
                 </div>
 
-                {/* Teléfono */}
                 <div>
                   <label className=" text-xs font-black uppercase text-slate-500 mb-2">
                     WhatsApp / Teléfono
@@ -246,8 +232,6 @@ const Mayoreo = () => {
                     className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 outline-none transition-colors"
                   />
                 </div>
-
-                {/* Consumo Semanal */}
                 <div>
                   <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
                     <TrendingUp size={14} /> Consumo Semanal Estimado
@@ -260,7 +244,6 @@ const Mayoreo = () => {
                   </select>
                 </div>
 
-                {/* Interés Principal */}
                 <div>
                   <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
                     <ClipboardList size={14} /> Producto de Mayor Interés
@@ -274,7 +257,6 @@ const Mayoreo = () => {
                   </select>
                 </div>
 
-                {/* Botón Submit */}
                 <div className="col-span-1 md:col-span-2 mt-4">
                   <button
                     type="submit"

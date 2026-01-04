@@ -11,8 +11,7 @@ import { motion } from "framer-motion";
 import HeroCarnitas from "../components/carnitasComponentes/HeroCarnitas";
 
 const Carnitas = () => {
-  
-    const whatsappLink =
+  const whatsappLink =
     "https://wa.me/524436721870?text=Hola,%20quisiera%20pedir%20carnitas...";
 
   return (
@@ -90,7 +89,7 @@ const Carnitas = () => {
             <div className="h-64 overflow-hidden relative">
               {/* IMAGEN CLOUDINARY MACIZA */}
               <ImagenCloudinary
-                publicId="platoCarnitas"
+                publicId="maciza"
                 anchoDeseado={600}
                 aspectRatio="4:3" // Aspecto rectangular para tarjeta
                 altText="Taco de maciza Carnitas Obrador Morelia"
@@ -159,7 +158,7 @@ const Carnitas = () => {
             <div className="h-64 overflow-hidden">
               {/* IMAGEN CLOUDINARY SURTIDO */}
               <ImagenCloudinary
-                publicId="platoCarnitas"
+                publicId="chamorro_prueba"
                 anchoDeseado={600}
                 aspectRatio="4:3"
                 altText="Buche nana y prensado Carnitas Obrador Morelia"
@@ -211,7 +210,6 @@ const Carnitas = () => {
             </div>
           </div>
           <div className="md:w-1/2">
-            {/* IMAGEN CLOUDINARY SALSAS */}
             <ImagenCloudinary
               publicId="salsaVerde"
               anchoDeseado={800}

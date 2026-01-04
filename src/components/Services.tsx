@@ -34,8 +34,6 @@ function Services() {
             <span>Ordenar</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </div>
-
-          {/* Línea animada */}
           <div className="absolute bottom-0 left-0 h-1.5 w-12 bg-white group-hover:w-full transition-all duration-300"></div>
         </a>
 
@@ -63,8 +61,6 @@ function Services() {
             <span>Ver Catálogo</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </div>
-
-          {/* Línea animada */}
           <div className="absolute bottom-0 left-0 h-1.5 w-12 bg-slate-900 group-hover:w-full transition-all duration-300 mb-[-4px]"></div>
         </a>
 
@@ -94,8 +90,6 @@ function Services() {
             <span>Cotizar</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </div>
-
-          {/* Línea animada */}
           <div className="absolute bottom-0 left-0 h-1.5 w-12 bg-red-600 group-hover:w-full transition-all duration-300"></div>
         </a>
       </motion.div>

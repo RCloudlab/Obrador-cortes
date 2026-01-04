@@ -1,104 +1,57 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, Info, ChevronRight } from 'lucide-react';
+import { CheckCircle, ChevronRight } from 'lucide-react';
+import { beefCategories } from '../constants/menu';
+import ImagenCloudinary from '../hooks/imageCloudinary';
 
-// 1. DEFINIR TIPO DE LAS CLAVES (SOLUCIÓN AL ERROR)
-type CategoryKey = 'res' | 'cerdo' | 'pollo' | 'taqueria';
+type CategoryKey = 'parrilla' | 'diario' | 'negocio';
 
 const MayoreoCatalog = () => {
-  // 2. APLICAR EL TIPO AL ESTADO
-  const [activeTab, setActiveTab] = useState<CategoryKey>('res');
-
-  const categories = {
-    res: {
-      label: "Res",
-      color: "bg-red-600",
-      description: "Ganado joven seleccionado. Procesos de maduración controlada.",
-      items: [
-        { name: "Arrachera Marinada", spec: "Suavizada, marinadosecreta", use: "Parrilladas, Tacos" },
-        { name: "Diezmillo", spec: "Con o sin hueso, marmoleo medio", use: "Asados, Estofados" },
-        { name: "Bistec Especial", spec: "Pulpa negra/bola, sin nervio", use: "Comedores, Menú diario" },
-        { name: "Molida Premium", spec: "Relación 90/10 o 80/20", use: "Hamburguesas, Picadillos" },
-        { name: "Rib Eye / New York", spec: "Cortes primarios nacionales", use: "Restaurantes Gama Alta" }
-      ]
-    },
-    cerdo: {
-      label: "Cerdo",
-      color: "bg-pink-600",
-      description: "Cerdo de granja certificado. Carne rosada, firme y sin inyección de agua.",
-      items: [
-        { name: "Lomo Caña", spec: "Limpio, sin grasa excedente", use: "Adobados, Rellenos" },
-        { name: "Pierna", spec: "Con hueso, piel o pulpa limpia", use: "Hornear, Tacos, Carnitas" },
-        { name: "Chuleta", spec: "Ahumada o Natural, corte 1cm+", use: "Platillos rápidos" },
-        { name: "Tocino Ahumado", spec: "Rebanado estándar o grueso", use: "Desayunos, Hamburguesas" },
-        { name: "Costilla", spec: "Cargada o St. Louis", use: "BBQ, Asados" }
-      ]
-    },
-    pollo: {
-      label: "Pollo",
-      color: "bg-yellow-500",
-      description: "Pollo fresco del día (no congelado). Procesado en planta TIF.",
-      items: [
-        { name: "Pechuga", spec: "Mariposa, Aplanada o con Hueso", use: "Milanesas, Plancha" },
-        { name: "Pierna y Muslo", spec: "Con piel/Sin piel", use: "Guisados, Caldos" },
-        { name: "Pollo Entero", spec: "Canal limpia, sin vísceras", use: "Rosticerías" },
-        { name: "Alitas", spec: "Pica (1 y 2) separada", use: "Snacks, Bares" }
-      ]
-    },
-    taqueria: {
-      label: "Especial Taquería",
-      color: "bg-slate-900",
-      description: "Proveedor de suadero y pastor para taquerías en Morelia.",
-      items: [
-        { name: "Suadero de Res", spec: "Pecho de res con grasa cobertura", use: "Tacos de Suadero" },
-        { name: "Pastor Preparado", spec: "Carne de cerdo laminada + Adobo", use: "Trompos (Listo para montar)" },
-        { name: "Tripa de Leche", spec: "Limpia, trenzada o precocida", use: "Tacos dorados" },
-        { name: "Longaniza Artesanal", spec: "Receta de la casa, 100% carne", use: "Campechanos" },
-        { name: "Cabeza de Res", spec: "Entera o descachetada", use: "Tacos de cabeza" }
-      ]
-    }
-  };
+  const [activeTab, setActiveTab] = useState<CategoryKey>('parrilla');
 
   return (
     <section className="py-24 bg-slate-50 font-sans text-slate-900" id="catalogo-maestro">
       <div className="max-w-6xl mx-auto px-4">
         
         <div className="text-center mb-12">
-          <span className="text-xs font-black uppercase tracking-widest text-slate-400">División Industrial</span>
-          <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mt-2">
-            Catálogo de <span className="text-red-600">Cortes</span>
+          <span className="text-xs font-black uppercase tracking-widest text-red-600 bg-red-50 px-3 py-1 rounded-full">
+            División Res
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mt-4">
+            Catálogo <span className="text-red-700">Visual</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto mt-4">
-            Selecciona una categoría para ver especificaciones técnicas.
+            Calidad TIF a la vista. Selecciona una categoría para ver el producto real.
           </p>
         </div>
 
-        {/* --- TABS DE NAVEGACIÓN --- */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {Object.keys(categories).map((rawKey) => {
-            // 3. CASTING DE LA CLAVE DENTRO DEL MAP
-            // Esto le dice a TS: "Confía en mí, esta string es una clave válida"
+        {/* --- TABS (Igual que antes) --- */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {Object.keys(beefCategories).map((rawKey) => {
             const key = rawKey as CategoryKey;
-            
+            const category = beefCategories[key];
             const isActive = activeTab === key;
+            const Icon = category.icon; 
+            
             return (
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm transition-all shadow-sm outline-none
+                className={`flex items-center gap-2 px-6 py-4 rounded-xl font-bold uppercase tracking-widest text-xs md:text-sm transition-all shadow-sm outline-none border-2
                   ${isActive 
-                    ? `${categories[key].color} text-white shadow-lg scale-105` 
-                    : 'bg-white text-slate-500 hover:bg-slate-100'
+                    ? `border-red-600 bg-red-600 text-white shadow-red-200 shadow-xl transform -translate-y-1` 
+                    : 'border-transparent bg-white text-slate-500 hover:bg-slate-100 hover:border-slate-200'
                   }
                 `}
               >
-                {categories[key].label}
+                <Icon size={18} className={isActive ? 'text-white' : 'text-slate-400'} />
+                {category.label}
               </button>
             );
           })}
         </div>
 
-        {/* --- CONTENIDO DE LA PESTAÑA --- */}
+        {/* --- CONTENIDO CON IMÁGENES --- */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 min-h-[400px]">
           <AnimatePresence mode='wait'>
             <motion.div
@@ -107,45 +60,79 @@ const MayoreoCatalog = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="p-8 md:p-12"
+              className="p-6 md:p-10"
             >
-              <div className="flex items-start gap-4 mb-8 pb-8 border-b border-slate-100">
-                <div className={`p-3 rounded-xl text-white shadow-lg ${categories[activeTab].color}`}>
-                  <Info size={32} />
+              {/* Encabezado simple */}
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 pb-8 border-b border-slate-100">
+                {/* 1. Contenedor del Icono Grande */}
+                <div className={`shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-red-100 ${beefCategories[activeTab].color}`}>
+                   {(() => {
+                      const Icon = beefCategories[activeTab].icon;
+                      return <Icon size={40} strokeWidth={1.5} />;
+                   })()}
                 </div>
+
+                {/* 2. Textos de la Categoría */}
                 <div>
-                  <h3 className="text-2xl font-black uppercase mb-2">{categories[activeTab].label}</h3>
+                  <h3 className="text-2xl font-black uppercase text-slate-900 mb-2">
+                    {beefCategories[activeTab].label}
+                  </h3>
                   <p className="text-slate-500 font-medium text-lg leading-relaxed">
-                    {categories[activeTab].description}
+                    {beefCategories[activeTab].description}
                   </p>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-                {categories[activeTab].items.map((item, idx) => (
-                  <div key={idx} className="group flex items-start justify-between p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-200">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <CheckCircle size={16} className={`shrink-0 ${activeTab === 'taqueria' ? 'text-slate-900' : 'text-red-600'}`} />
-                        <h4 className="font-black uppercase text-slate-900 text-lg">{item.name}</h4>
-                      </div>
-                      <p className="text-sm text-slate-500 pl-6">
-                        <span className="font-bold text-slate-700 text-xs uppercase tracking-wide">Presentación:</span> {item.spec}
-                      </p>
+              {/* Grid de Productos - Diseño Tarjeta Horizontal */}
+              <div className="grid md:grid-cols-2 gap-6">
+                {beefCategories[activeTab].items.map((item, idx) => (
+                  <div 
+                    key={idx} 
+                    className="group flex bg-white rounded-xl overflow-hidden border border-slate-100 hover:border-red-200 hover:shadow-lg transition-all duration-300"
+                  >
+                    {/* COLUMNA IZQUIERDA: IMAGEN */}
+                    <div className="w-1/3 relative bg-slate-100 overflow-hidden">
+                        {/* Usamos tu componente ImagenCloudinary */}
+                        <div className="w-full h-full group-hover:scale-110 transition-transform duration-500">
+                             <ImagenCloudinary 
+                                publicId={item.imgId}
+                                anchoDeseado={300} // Optimizamos el tamaño
+                                altText={`Corte de carne ${item.name}`}
+                                aspectRatio="1:1" // Cuadrado para uniformidad
+                                className="w-full h-full object-cover"
+                             />
+                        </div>
+                        {/* Overlay sutil rojo al hacer hover */}
+                        <div className="absolute inset-0 bg-red-900/0 group-hover:bg-red-900/10 transition-colors duration-300"></div>
                     </div>
-                    
-                    <div className="hidden sm:block text-right">
-                      <span className="inline-block px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded-md group-hover:bg-white group-hover:shadow-sm transition-all">
-                        {item.use}
-                      </span>
+
+                    {/* COLUMNA DERECHA: INFO */}
+                    <div className="w-2/3 p-4 flex flex-col justify-center">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="font-black uppercase text-slate-900 text-lg leading-tight group-hover:text-red-700 transition-colors">
+                            {item.name}
+                        </h4>
+                      </div>
+                      
+                      <p className="text-xs text-slate-500 mb-3 line-clamp-2">
+                        <span className="font-bold text-slate-700">Espec:</span> {item.spec}
+                      </p>
+
+                      <div className="mt-auto flex items-center justify-between">
+                         <span className="inline-block px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded border border-slate-200">
+                            {item.use}
+                         </span>
+                         <CheckCircle size={16} className="text-slate-200 group-hover:text-red-500 transition-colors" />
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10 pt-6 border-t border-slate-100 flex justify-end">
-                <a href="#cotizacion" className="inline-flex items-center gap-2 text-red-600 font-black uppercase text-sm tracking-widest hover:text-slate-900 transition-colors">
-                  Cotizar estos productos <ChevronRight size={18}/>
+              <div className="mt-10 pt-6 border-t border-slate-100 text-right">
+                <a href="#cotizacion" className="inline-flex items-center gap-2 text-red-600 font-black uppercase text-sm tracking-widest hover:text-slate-900 transition-colors group">
+                  Solicitar cotización de {beefCategories[activeTab].label} 
+                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform"/>
                 </a>
               </div>
 

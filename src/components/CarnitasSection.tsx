@@ -41,7 +41,7 @@ function CarnitasSection() {
         </motion.div>
         <div className="relative">
           <ImagenCloudinary
-            publicId="Taco_pastorMMM_a9vjpo"
+            publicId="carnitas_prueba"
             anchoDeseado={800}
             aspectRatio="4:5"
             altText="Carnitas Obrador"

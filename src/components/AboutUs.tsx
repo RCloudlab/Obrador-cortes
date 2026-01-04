@@ -12,7 +12,7 @@ function AboutUs() {
       >
         <div className="relative">
           <ImagenCloudinary
-            publicId="Taco_pastorMMM_a9vjpo"
+            publicId="carniceria_prueba"
             anchoDeseado={800}
             aspectRatio="1:1"
             altText="Instalaciones Obrador Cortés"

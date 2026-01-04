@@ -33,7 +33,9 @@ const ContactoYMapa = () => {
     _captcha: string;
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage("");
