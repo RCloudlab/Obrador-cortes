@@ -2,8 +2,7 @@
   "rewrites": [
     { 
       "source": "/(.*)", 
-      "destination": "https://www.carnitascortes.com/",
-      "permanent": true
+      "destination": "https://www.carnitascortes.com/"
     }
   ]
 }
