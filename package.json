@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:sitemap": "sitemap-generator https://carnitascortes.com --strip-querystring --max-depth 3 --output ./public/sitemap.xml"
   },
   "dependencies": {
     "@cloudinary/react": "^1.14.3",
@@ -30,6 +31,8 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
+    "sitemap": "^9.0.0",
+    "sitemap-generator-cli": "^7.5.0",
     "tailwindcss": "^3.4.19",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
