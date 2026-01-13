@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import PasosCompra from "../components/PasosCompra";
 import MayoreoCatalog from "../components/CatalogoCarnes";
 
-const Mayoreo = () => {
+const Carnes = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -278,4 +278,4 @@ const Mayoreo = () => {
   );
 };
 
-export default Mayoreo;
+export default Carnes;

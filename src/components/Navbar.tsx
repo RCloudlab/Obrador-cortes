@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Inicio", path: "/", type: "router" },
-    { name: "Mayoreo", path: "/mayoreo", type: "router" },
+    { name: "Carnes", path: "/carnes", type: "router" },
     { name: "Carnitas", path: "/carnitas", type: "router" },
     { name: "Contacto", path: "/contacto", type: "router" },
   ];
