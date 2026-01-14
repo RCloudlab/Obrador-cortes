@@ -5,7 +5,6 @@ import {
   Clock,
   CreditCard,
   Truck,
-  Car,
   Mail,
   MessageCircle,
   ExternalLink,
@@ -230,18 +229,6 @@ const Contacto = () => {
                 <p className="text-sm text-slate-500">
                   Aceptamos efectivo, transferencias bancarias y todas las
                   tarjetas de crédito/débito (Visa, MC, Amex).
-                </p>
-              </div>
-
-              {/* FAQ 2: Estacionamiento */}
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-red-600 transition-colors group">
-                <div className="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-100 group-hover:text-red-600 transition-colors">
-                  <Car size={24} />
-                </div>
-                <h4 className="font-bold uppercase mb-2">Estacionamiento</h4>
-                <p className="text-sm text-slate-500">
-                  Sí, contamos con estacionamiento gratuito y seguro frente al
-                  local dentro de la Central de Abastos.
                 </p>
               </div>
 

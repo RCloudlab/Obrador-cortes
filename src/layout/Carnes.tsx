@@ -5,14 +5,12 @@ import {
   ChefHat,
   TrendingUp,
   ArrowRight,
-  ClipboardList,
-  Package,
-  User,
 } from "lucide-react";
 import ImagenCloudinary from "../hooks/imageCloudinary";
 import { useEffect, useState } from "react";
 import PasosCompra from "../components/PasosCompra";
 import MayoreoCatalog from "../components/CatalogoCarnes";
+import CotizacionEventos from "../components/carnesComponentes/CotizacionEventos";
 
 const Carnes = () => {
   const fadeInUp = {
@@ -182,98 +180,7 @@ const Carnes = () => {
       </section>
       <MayoreoCatalog />
       <PasosCompra />
-      <section
-        id="cotizacion"
-        className="py-24 bg-slate-50 relative overflow-hidden"
-      >
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-t-8 border-slate-900">
-            <div className="p-8 md:p-12 bg-slate-900 text-white text-center">
-              <h2 className="text-3xl font-black uppercase">
-                Alta de Clientes Nuevos
-              </h2>
-              <p className="text-slate-400 mt-2">
-                Completa el perfil de tu negocio para asignarte un nivel de
-                descuento.
-              </p>
-            </div>
-
-            <div className="p-8 md:p-12">
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="col-span-1 md:col-span-2">
-                  <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
-                    <Package size={14} /> Nombre Comercial del Negocio
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Ej. Taquería Los Primos"
-                    className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 focus:ring-0 outline-none transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
-                    <User size={14} /> Nombre del Encargado
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nombre completo"
-                    className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 outline-none transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className=" text-xs font-black uppercase text-slate-500 mb-2">
-                    WhatsApp / Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="10 dígitos"
-                    className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
-                    <TrendingUp size={14} /> Consumo Semanal Estimado
-                  </label>
-                  <select className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 outline-none cursor-pointer">
-                    <option>Menos de 20 kg</option>
-                    <option>20 kg - 50 kg</option>
-                    <option>50 kg - 100 kg</option>
-                    <option>Más de 100 kg (Precios Preferenciales)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className=" text-xs font-black uppercase text-slate-500 mb-2 flex items-center gap-2">
-                    <ClipboardList size={14} /> Producto de Mayor Interés
-                  </label>
-                  <select className="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg font-bold text-slate-900 focus:border-slate-900 outline-none cursor-pointer">
-                    <option>Suadero y Pastor</option>
-                    <option>Cortes Finos (Res)</option>
-                    <option>Cerdo en Canal / Piezas</option>
-                    <option>Pollo Fresco</option>
-                    <option>Vísceras</option>
-                  </select>
-                </div>
-
-                <div className="col-span-1 md:col-span-2 mt-4">
-                  <button
-                    type="submit"
-                    className="w-full bg-red-600 text-white py-5 rounded-lg font-black uppercase tracking-widest shadow-xl hover:bg-red-700 hover:-translate-y-1 transition-all active:scale-95"
-                  >
-                    Solicitar Cotización Formal
-                  </button>
-                  <p className="text-center text-xs text-slate-400 mt-4">
-                    Tus datos están protegidos. Respuesta en menos de 24 horas
-                    hábiles.
-                  </p>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CotizacionEventos />
     </div>
   );
 };
