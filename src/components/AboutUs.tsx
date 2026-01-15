@@ -12,8 +12,8 @@ function AboutUs() {
       >
         <div className="relative">
           <ImagenCloudinary
-            publicId="carniceria_prueba"
-            anchoDeseado={800}
+            publicId="DSC03449_wvq1xx"
+            anchoDeseado={500}
             aspectRatio="1:1"
             altText="Instalaciones Obrador Cortés"
             className="rounded-none border-l-8 border-red-600 shadow-2xl"

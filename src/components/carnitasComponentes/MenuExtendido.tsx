@@ -2,7 +2,8 @@ import { Utensils, Flame, Scale, MessageCircle } from "lucide-react"; // <--- Ag
 import ListaCategoria from "./ListaCategoria";
 
 function MenuExtendido() {
-  const whatsappLink = "https://wa.me/524436721870?text=Hola,%20vi%20el%20menú%20y%20quiero%20hacer%20un%20pedido."; // <--- Tu enlace
+  const whatsappLink =
+    "https://wa.me/524436721870?text=Hola,%20vi%20el%20menú%20y%20quiero%20hacer%20un%20pedido."; // <--- Tu enlace
 
   return (
     <section className="py-20 bg-slate-900 text-white">
@@ -16,7 +17,9 @@ function MenuExtendido() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16"> {/* <--- Agregué mb-16 para separar del botón */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {" "}
+          {/* <--- Agregué mb-16 para separar del botón */}
           <ListaCategoria
             titulo="Por Kilo"
             subtitulo="Venta por: 1/4 • 1/2 • 1 Kilo"
@@ -35,7 +38,6 @@ function MenuExtendido() {
               },
             ]}
           />
-
           <ListaCategoria
             titulo="El Antojo"
             subtitulo="Preparado al momento"
@@ -67,23 +69,25 @@ function MenuExtendido() {
 
         {/* --- NUEVO BOTÓN DE PEDIDO --- */}
         <div className="flex flex-col items-center justify-center animate-fade-in-up">
-            <p className="text-slate-400 mb-6 text-sm font-medium uppercase tracking-widest">
-                ¿Se te antojó algo?
-            </p>
-            <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 bg-red-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest transition-all hover:bg-red-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-600/30"
-            >
-                <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" />
-                <span>Hacer Pedido por WhatsApp</span>
-                
-                {/* Efecto de brillo sutil */}
-                <div className="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all" />
-            </a>
-        </div>
+          <p className="text-slate-400 mb-6 text-sm font-medium uppercase tracking-widest">
+            ¿Se te antojó algo?
+          </p>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-3 bg-red-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest transition-all hover:bg-red-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-600/30"
+          >
+            <MessageCircle
+              size={24}
+              className="group-hover:rotate-12 transition-transform"
+            />
+            <span>Hacer Pedido por WhatsApp</span>
 
+            {/* Efecto de brillo sutil */}
+            <div className="absolute inset-0 rounded-full ring-2 ring-white/20 group-hover:ring-white/40 transition-all" />
+          </a>
+        </div>
       </div>
     </section>
   );

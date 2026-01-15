@@ -3,7 +3,7 @@ import { Flame } from "lucide-react";
 
 function MenuAntojo() {
   const generarLinkWhatsApp = (producto: string) => {
-    const numeroTelefono = "524436721870"; 
+    const numeroTelefono = "524436721870";
     const mensaje = `Hola, me interesa hacer un pedido de: ${producto}. ¿Me dan informes?`;
     return `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(
       mensaje
@@ -140,7 +140,7 @@ function MenuAntojo() {
         <div className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
           <div className="h-48 overflow-hidden">
             <ImagenCloudinary
-              publicId="chamorro_prueba"
+              publicId="DSC03798_bchaw6"
               anchoDeseado={600}
               aspectRatio="16:9"
               altText="Buche nana y prensado"
@@ -205,9 +205,8 @@ function MenuAntojo() {
             ¿Probaste las Boronas?
           </h3>
           <p className="text-slate-600 mb-4 text-sm leading-relaxed">
-            No te vayas sin llevarte: Frijoles
-            bayos refritos y nuestras famosas <strong>boronas</strong> (el
-            asiento doradito del cazo).
+            No te vayas sin llevarte: Frijoles bayos refritos y nuestras famosas{" "}
+            <strong>boronas</strong> (el asiento doradito del cazo).
             <br />
             <span className="text-xs italic text-slate-400">
               ¡Ideales para unas gorditas o con huevo en el desayuno!
@@ -216,28 +215,26 @@ function MenuAntojo() {
 
           {/* Tags de complementos */}
           <div className="flex flex-wrap gap-2">
-            {["Boronas ($)", "Frijoles ($)"].map(
-              (item) => (
-                <span
-                  key={item}
-                  className={`px-3 py-1 rounded shadow-sm font-bold text-[10px] uppercase border ${
-                    item.includes("$")
-                      ? "bg-orange-600 text-white border-orange-600" // Destacamos los de venta
-                      : "bg-white text-slate-700 border-slate-200"
-                  }`}
-                >
-                  {item}
-                </span>
-              )
-            )}
+            {["Boronas ($)", "Frijoles ($)"].map((item) => (
+              <span
+                key={item}
+                className={`px-3 py-1 rounded shadow-sm font-bold text-[10px] uppercase border ${
+                  item.includes("$")
+                    ? "bg-orange-600 text-white border-orange-600" // Destacamos los de venta
+                    : "bg-white text-slate-700 border-slate-200"
+                }`}
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 
         <div className="md:w-1/2 w-full">
-          <div className="h-48 md:h-56 overflow-hidden rounded-xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 transition-all bg-slate-200 relative group">
+          <div className="h-48 md:h-80 overflow-hidden rounded-xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 transition-all bg-slate-200 relative group">
             {/* Aquí podrías poner una foto de un taco con boronas o una olla de frijoles */}
             <ImagenCloudinary
-              publicId="boronas_frijoles" // <--- Ojo: Cambiar a una foto de esto si tienes
+              publicId="Boronas_b7auz1"
               anchoDeseado={800}
               aspectRatio="4:3"
               altText="Frijoles y boronas de carnitas"
