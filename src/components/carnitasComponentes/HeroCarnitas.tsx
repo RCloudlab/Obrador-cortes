@@ -26,7 +26,7 @@ function HeroCarnitas() {
       <div className="absolute inset-0 z-0">
         {isDesktop ? (
           <ImagenCloudinary
-            publicId="carnitasCazoHero"
+            publicId="DSC03802_j2xb5n"
             anchoDeseado={1920}
             aspectRatio="16:9" // Horizontal para escritorio
             altText="Carnitas michoacanas preparándose en cazo de cobre tradicional en Morelia"

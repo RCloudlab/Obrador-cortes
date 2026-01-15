@@ -1,14 +1,12 @@
 import {
-  Flame,
   Utensils,
   Calendar,
-  CheckCircle,
-  Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import HeroCarnitas from "../components/carnitasComponentes/HeroCarnitas";
 import MenuAntojo from "../components/carnitasComponentes/MenuAntojo";
 import MenuExtendido from "../components/carnitasComponentes/MenuExtendido";
+import FeaturesCarnitas from "../components/carnitasComponentes/FeatureCarnitas";
 
 const Carnitas = () => {
   const whatsappLink =
@@ -24,52 +22,7 @@ const Carnitas = () => {
       <HeroCarnitas />
 
       {/* DIRECTO DEL OBRADOR (Sin cambios en imágenes aquí) */}
-      <section className="py-16 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600">
-                <Flame size={32} strokeWidth={2} />
-              </div>
-              <h3 className="text-xl font-black uppercase mb-2">
-                Cazo de Cobre
-              </h3>
-              <p className="text-slate-500 text-sm">
-                El secreto del sabor y color auténtico michoacano. Nada de
-                imitaciones.
-              </p>
-            </div>
-            <div className="p-6 relative">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-4 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-full">
-                Nuestro Secreto
-              </div>
-              <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
-                <CheckCircle size={32} strokeWidth={2} />
-              </div>
-              <h3 className="text-xl font-black uppercase mb-2">
-                Sin Intermediarios
-              </h3>
-              <p className="text-slate-500 text-sm">
-                Somos productores. La carne viene directa de nuestro propio
-                obrador industrial a tu plato.{" "}
-                <strong className="text-red-600">Frescura imbatible.</strong>
-              </p>
-            </div>
-            <div className="p-6">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600">
-                <Clock size={32} strokeWidth={2} />
-              </div>
-              <h3 className="text-xl font-black uppercase mb-2">
-                Hechas Diario
-              </h3>
-              <p className="text-slate-500 text-sm">
-                Comenzamos de madrugada para que disfrutes el mejor sabor en tu
-                desayuno o comida.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturesCarnitas />
 
       {/* EL MENÚ DEL ANTOJO */}
       <MenuAntojo />
