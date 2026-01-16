@@ -34,9 +34,8 @@ function HeroCarnitas() {
           />
         ) : (
           <ImagenCloudinary
-            publicId="carnitasCazoHero"
+            publicId="carnitas_mobile"
             anchoDeseado={800}
-            aspectRatio="3:4" // 2. CAMBIO IMPORTANTE: Vertical para móvil (Cloudinary hará el crop inteligente)
             altText="Carnitas michoacanas preparándose en cazo de cobre tradicional en Morelia"
             className="absolute inset-0 w-full h-full object-cover animate-pulse-slow z-0"
           />

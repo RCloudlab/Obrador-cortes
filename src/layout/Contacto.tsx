@@ -10,10 +10,34 @@ import {
   ExternalLink,
 } from "lucide-react";
 import ImagenCloudinary from "../hooks/imageCloudinary";
+import { useEffect, useState } from "react";
 
 const Contacto = () => {
   const googleMapsDirectionsUrl = `https://www.google.com/maps/place/CARNITAS+CORTES/@19.7161799,-101.1709329,17z/data=!4m6!3m5!1s0x842d0fe64227a87d:0x41bf4a7460905920!8m2!3d19.7161629!4d-101.170983!16s%2Fg%2F11fs07s3rf?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D`;
   const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.23456789!2d-101.1709329!3d19.7161799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0f9a5950f577%3A0x1f93f2f85aee935c!2sOBRADOR%20CORT%C3%89S%20Industrializadora%20Michoacana%20de%20Carne%20S.A.%20de%20C.V.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx`;
+
+  const imageDesktopId = "fachada";
+  const imageMobileId = "fachada_mobile";
+
+  const [isDesktop, setIsDesktop] = useState<boolean>(() =>
+    typeof window !== "undefined" ? window.innerWidth >= 768 : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsDesktop(e.matches);
+    };
+    handler(mq);
+    if (mq.addEventListener) mq.addEventListener("change", handler as never);
+    else mq.addListener(handler as never);
+
+    return () => {
+      if (mq.removeEventListener)
+        mq.removeEventListener("change", handler as never);
+      else mq.removeListener(handler as never);
+    };
+  }, []);
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24 font-sans text-slate-900">
@@ -121,13 +145,23 @@ const Contacto = () => {
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           <div className="grid md:grid-cols-2">
             <div className="relative h-64 md:h-auto min-h-[400px]">
-              <ImagenCloudinary
-                publicId="fachada"
-                anchoDeseado={800}
+              {isDesktop ? (
+                <ImagenCloudinary
+                publicId={imageDesktopId}
+                anchoDeseado={1520}
                 aspectRatio="4:3"
                 altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              ):(
+                <ImagenCloudinary
+                publicId={imageMobileId}
+                anchoDeseado={800}
+                altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              )}
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
                 <div className="flex items-start gap-2 text-white mb-2">
                   <MapPin className="text-red-500 shrink-0 mt-1" />
