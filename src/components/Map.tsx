@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 
 const ContactoYMapa = () => {
   const GOOGLE_MAPS_EMBED =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.23456789!2d-101.1709329!3d19.7161799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0f9a5950f577%3A0x1f93f2f85aee935c!2sOBRADOR%20CORT%C3%89S%20Industrializadora%20Michoacana%20de%20Carne%20S.A.%20de%20C.V.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"; // Tu URL original
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.23456789!2d-101.1709329!3d19.7161799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0f9a5950f577%3A0x1f93f2f85aee935c!2sOBRADOR%20CORT%C3%89S%20Industrializadora%20Michoacana%20de%20Carne%20S.A.%20de%20C.V.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx";
   const GOOGLE_MAPS_LINK =
-    "https://www.google.com/maps/place/CARNITAS+CORTES/@19.7161799,-101.1709329,17z/data=!4m6!3m5!1s0x842d0fe64227a87d:0x41bf4a7460905920!8m2!3d19.7161629!4d-101.170983!16s%2Fg%2F11fs07s3rf?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"; // Tu URL original
-  const PHONE_NUMBER = "524436721870"; // Tu número
+    "https://www.google.com/maps/place/CARNITAS+CORTES/@19.7161799,-101.1709329,17z/data=!4m6!3m5!1s0x842d0fe64227a87d:0x41bf4a7460905920!8m2!3d19.7161629!4d-101.170983!16s%2Fg%2F11fs07s3rf?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D";
+
+  const PHONE_NUMBER = "524436721870";
 
   const handleWhatsapp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,10 +24,8 @@ ${data.instrucciones ? `4. Instrucciones extra: ${data.instrucciones}` : ""}
 
 Quedo pendiente de la confirmación.`;
 
-    // Codificamos el texto para URL
     const encodedMessage = encodeURIComponent(message);
 
-    // Abrimos WhatsApp
     window.open(
       `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`,
       "_blank"
@@ -42,7 +41,6 @@ Quedo pendiente de la confirmación.`;
         transition={{ duration: 0.6 }}
         className="max-w-7xl mx-auto px-4"
       >
-        {/* Encabezado */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black uppercase text-slate-900 leading-tight">
             Haz tu pedido a{" "}
@@ -54,7 +52,7 @@ Quedo pendiente de la confirmación.`;
         </div>
 
         <div className="grid md:grid-cols-2 gap-px bg-slate-200 shadow-2xl">
-          {/* Columna 1: Información y Mapa (Izquierda) */}
+          {/* IZQUIERDA */}
           <div className="bg-slate-900 p-8 md:p-12 text-white flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-black uppercase mb-8 border-l-4 border-red-600 pl-4">
@@ -92,7 +90,6 @@ Quedo pendiente de la confirmación.`;
               </div>
             </div>
 
-            {/* Mapa */}
             <div className="relative group overflow-hidden border-2 border-slate-700 rounded-lg shadow-inner bg-slate-800">
               <iframe
                 title="Mapa de Ubicación"
@@ -113,7 +110,7 @@ Quedo pendiente de la confirmación.`;
             </div>
           </div>
 
-          {/* Columna 2: Formulario WhatsApp (Derecha) */}
+          {/* DERECHA */}
           <div className="bg-white p-8 md:p-12 relative">
             <h3 className="text-2xl font-black uppercase mb-8 text-slate-900 flex items-center gap-2">
               Arma tu Pedido
@@ -123,36 +120,36 @@ Quedo pendiente de la confirmación.`;
             </h3>
 
             <form onSubmit={handleWhatsapp} className="space-y-6">
-              {/* 1. NOMBRE */}
+              {/* NOMBRE */}
               <div className="group relative">
                 <input
                   type="text"
                   name="nombre"
                   required
-                  className="peer w-full py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
                   placeholder="Tu Nombre"
                   id="nombre"
+                  className="peer w-full py-4 md:py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
                 />
                 <label
                   htmlFor="nombre"
-                  className="absolute left-0 -top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
+                  className="absolute left-0 -top-2.5 md:-top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 md:peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
                 >
                   1. Tu Nombre *
                 </label>
               </div>
 
-              {/* 2 & 3. ARTÍCULOS Y CANTIDAD */}
+              {/* PEDIDO */}
               <div className="group relative mt-4">
                 <textarea
                   name="pedido"
                   required
-                  className="peer w-full py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 h-24 resize-none placeholder-transparent focus:border-red-600 transition-colors"
-                  placeholder="Ej: 1kg de Arrachera, 500g de Chorizo..."
                   id="pedido"
+                  placeholder="Ej: 1kg de Arrachera, 500g de Chorizo..."
+                  className="peer w-full py-4 md:py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 h-24 resize-none placeholder-transparent focus:border-red-600 transition-colors"
                 ></textarea>
                 <label
                   htmlFor="pedido"
-                  className="absolute left-0 -top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
+                  className="absolute left-0 -top-2.5 md:-top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 md:peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
                 >
                   2. ¿Qué cortes y qué cantidad necesitas? *
                 </label>
@@ -161,36 +158,36 @@ Quedo pendiente de la confirmación.`;
                 </p>
               </div>
 
-              {/* 4. DIRECCIÓN */}
+              {/* DIRECCIÓN */}
               <div className="group relative">
                 <input
                   type="text"
                   name="direccion"
                   required
-                  className="peer w-full py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
-                  placeholder="Dirección Completa"
                   id="direccion"
+                  placeholder="Dirección Completa"
+                  className="peer w-full py-4 md:py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
                 />
                 <label
                   htmlFor="direccion"
-                  className="absolute left-0 -top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
+                  className="absolute left-0 -top-2.5 md:-top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 md:peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
                 >
                   3. Dirección de Entrega (Calle, #, Colonia) *
                 </label>
               </div>
 
-              {/* OPCIONAL: INSTRUCCIONES */}
+              {/* INSTRUCCIONES */}
               <div className="group relative">
                 <input
                   type="text"
                   name="instrucciones"
-                  className="peer w-full py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
-                  placeholder="Instrucciones"
                   id="instrucciones"
+                  placeholder="Instrucciones"
+                  className="peer w-full py-4 md:py-3 border-b-2 border-slate-200 bg-transparent outline-none font-bold text-slate-900 placeholder-transparent focus:border-red-600 transition-colors"
                 />
                 <label
                   htmlFor="instrucciones"
-                  className="absolute left-0 -top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
+                  className="absolute left-0 -top-2.5 md:-top-3.5 text-xs font-black uppercase text-slate-400 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-2.5 md:peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-red-600"
                 >
                   ¿Alguna instrucción especial? (Opcional)
                 </label>
@@ -198,7 +195,8 @@ Quedo pendiente de la confirmación.`;
 
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-5 font-black uppercase tracking-widest hover:bg-green-700 transition-all active:scale-95 shadow-xl flex items-center justify-center gap-2 rounded-sm"
+                /* Botón adaptativo */
+                className="w-full bg-green-600 text-white py-4 md:py-5 font-black uppercase tracking-wide md:tracking-widest hover:bg-green-700 transition-all active:scale-95 shadow-xl flex items-center justify-center gap-2 rounded-sm text-sm md:text-base"
               >
                 Enviar pedido por WhatsApp <MessageCircle size={20} />
               </button>
