@@ -16,7 +16,7 @@ const MasVendidos = () => {
               Nuestros Cortes <span className="underline decoration-red-600 decoration-4">Estrella</span>
             </h2>
           </div>
-          <a href="/mayoreo" className="hidden md:flex items-center gap-2 text-slate-500 font-bold hover:text-red-600 transition-colors uppercase text-sm tracking-widest group">
+          <a href="/carnes" className="hidden md:flex items-center gap-2 text-slate-500 font-bold hover:text-red-600 transition-colors uppercase text-sm tracking-widest group">
             Ver Catálogo Completo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/>
           </a>
         </div>
@@ -31,7 +31,7 @@ const MasVendidos = () => {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg mb-4">
+              <div className="relative h-72  rounded-2xl overflow-hidden shadow-lg mb-4">
                 <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1 text-[10px] font-black uppercase tracking-wide text-slate-900">
                   <Star size={10} className="fill-yellow-400 text-yellow-400" /> {product.price}
                 </div>
@@ -39,13 +39,13 @@ const MasVendidos = () => {
                 <div className="w-full h-full group-hover:scale-110 transition-transform duration-700">
                   <ImagenCloudinary 
                     publicId={product.image}
-                    anchoDeseado={400}
-                    aspectRatio="3:4"
+                    anchoDeseado={800}
+                    aspectRatio="1:1"
                     altText={`${product.name} venta en Morelia`}
                   />
                 </div>
                 
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300"></div>
               </div>
 
               <h3 className="text-xl font-black uppercase text-slate-900 leading-none mb-1 group-hover:text-red-600 transition-colors">
