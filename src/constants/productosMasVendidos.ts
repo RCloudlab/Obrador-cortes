@@ -1,30 +1,30 @@
 export const products = [
     {
       id: 1,
-      name: "Arrachera Marinada",
-      category: "Res Premium",
-      image: "arrachera_prueba", 
-      price: "Calidad Top"
-    },
-    {
-      id: 2,
-      name: "Costilla Cargada",
-      category: "Cerdo Fresco",
-      image: "costilla_prueba", 
+      name: "Arrachera",
+      category: "Res para Asar",
+      image: "arrachera_corte", 
       price: "Ideal Asados"
     },
     {
+      id: 2,
+      name: "Espaldilla de cerdo",
+      category: "Cerdo Fresco",
+      image: "espaldilla_cerdo_corte",
+      price: "Para Guisar"
+    },
+    {
       id: 3,
-      name: "Pastor Preparado",
-      category: "Especial Taquería",
-      image: "pastor_prueba", 
+      name: "Pechuga empanizada",
+      category: "Pollo Fresco",
+      image: "pechuga_empanizada", 
       price: "Receta Secreta"
     },
     {
       id: 4,
-      name: "Rib Eye Nacional",
-      category: "Cortes Finos",
-      image: "ribeye_prueba", 
-      price: "Marmoleo Alto"
+      name: "Molida de res",
+      category: "Taqueria / Guisos",
+      image: "molida_res_corte", 
+      price: "100% Carne de Res"
     }
   ];

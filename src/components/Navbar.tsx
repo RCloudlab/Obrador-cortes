@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
+import logo from "../assets/logo-obrador.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,14 +60,27 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b-4 border-red-600 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-        <Link to="/" className="flex flex-col leading-none z-50">
-          <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter">
-            OBRADOR <span className="text-red-600">CORTÉS</span>
-          </span>
-          <span className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-[0.2em]">
-            Industrializadora Michoacana
-          </span>
+        
+        {/* LOGO + BRAND - SECCIÓN MODIFICADA */}
+        <Link to="/" className="flex items-center gap-3 z-50 group text-left">
+          {/* Imagen del Logo Responsive */}
+          <img 
+            src={logo} 
+            alt="Logo Obrador Cortés" 
+            className="h-10 w-auto md:h-14 object-contain transition-transform group-hover:scale-105"
+          />
+          
+          {/* Contenedor de Texto (Mantiene la estructura vertical) */}
+          <div className="flex flex-col leading-none">
+            <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter">
+              OBRADOR <span className="text-red-600">CORTÉS</span>
+            </span>
+            <span className="text-[9px] md:text-xs font-bold text-slate-500 uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              Industrializadora Michoacana
+            </span>
+          </div>
         </Link>
+        {/* FIN SECCIÓN LOGO */}
 
         <div className="hidden md:flex space-x-8 font-bold uppercase text-sm tracking-widest text-slate-800">
           {navLinks.map((link) => renderLink(link))}
@@ -75,7 +89,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <a
             href="tel:tu-numero"
-            className="bg-black text-white px-5 py-2.5 rounded-sm font-bold flex items-center gap-2 hover:bg-red-600 transition shadow-md group"
+            className="bg-black text-white px-4 py-2 md:px-5 md:py-2.5 rounded-sm font-bold flex items-center gap-2 hover:bg-red-600 transition shadow-md group"
           >
             <Phone size={18} className="group-hover:animate-pulse" />
             <span className="hidden sm:inline tracking-wider">LLAMAR</span>
