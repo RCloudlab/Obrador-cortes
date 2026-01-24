@@ -24,7 +24,7 @@ function TableServices() {
               </li>
               <li className="flex justify-between border-b pb-2 italic">
                 <span>Horario de Carnitas</span>{" "}
-                <strong>8:00 AM - 3:00 PM</strong>
+                <strong>9:00 AM - 4:00 PM</strong>
               </li>
             </ul>
             <p className="mt-6 text-sm text-slate-500 uppercase font-bold tracking-widest">
@@ -45,7 +45,6 @@ function TableServices() {
                 "Cerdo Fresco",
                 "Pollo",
                 "Cortes para Taquería",
-                "Catering Industrial",
               ].map((i) => (
                 <span
                   key={i}

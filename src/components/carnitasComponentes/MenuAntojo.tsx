@@ -234,7 +234,7 @@ function MenuAntojo() {
           <div className="h-48 md:h-80 overflow-hidden rounded-xl shadow-lg border-4 border-white rotate-1 hover:rotate-0 transition-all bg-slate-200 relative group">
             {/* Aquí podrías poner una foto de un taco con boronas o una olla de frijoles */}
             <ImagenCloudinary
-              publicId="Boronas_b7auz1"
+              publicId="Boronas_carnitas"
               anchoDeseado={800}
               aspectRatio="4:3"
               altText="Frijoles y boronas de carnitas"
