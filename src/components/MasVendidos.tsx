@@ -59,7 +59,7 @@ const MasVendidos = () => {
         </div>
 
         <div className="mt-8 text-center md:hidden">
-           <a href="/mayoreo" className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-bold uppercase text-xs tracking-widest">
+           <a href="/carnes" className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-bold uppercase text-xs tracking-widest">
             Ver Todo el Menú <ArrowRight size={16}/>
           </a>
         </div>

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import {
-  Phone,
   MapPin,
   Clock,
   CreditCard,
   Truck,
-  Mail,
   MessageCircle,
   ExternalLink,
+  Camera,
+  Info,
+  Calendar,
 } from "lucide-react";
 import ImagenCloudinary from "../hooks/imageCloudinary";
 import { useEffect, useState } from "react";
@@ -18,9 +19,10 @@ const Contacto = () => {
 
   const imageDesktopId = "fachada";
   const imageMobileId = "fachada_mobile";
+  const galleryImageId = "Galery_cortes1";
 
   const [isDesktop, setIsDesktop] = useState<boolean>(() =>
-    typeof window !== "undefined" ? window.innerWidth >= 768 : false
+    typeof window !== "undefined" ? window.innerWidth >= 768 : false,
   );
 
   useEffect(() => {
@@ -41,6 +43,8 @@ const Contacto = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24 font-sans text-slate-900">
+
+      {/* --- ENCABEZADO --- */}
       <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,84 +58,134 @@ const Contacto = () => {
           </span>
         </h1>
         <p className="text-slate-500 font-medium text-lg">
-          Ya sea por un taco o por una pieza completa, aquí te atendemos.
+          La mejor calidad en carnes y el sabor tradicional que buscas.
         </p>
       </motion.section>
 
-      {/* --- DIRECTORIO DIFERENCIADO (GRID) --- */}
+      {/* --- DIRECTORIO Y GALERÍA (GRID) --- */}
+      {/* --- DIRECTORIO Y GALERÍA (GRID) --- */}
       <div className="max-w-7xl mx-auto px-4 mb-20">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          
+          {/* --- CARD 1: CARNITAS (Tema Claro / Funcional) --- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-red-600 hover:shadow-2xl transition-shadow"
+            className="w-full bg-white relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group min-h-[320px] md:min-h-[450px]"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-red-100 p-4 rounded-full text-red-600">
-                <MessageCircle size={32} />
-              </div>
-              <div>
-                <h2 className="text-2xl font-black uppercase">
-                  ¿Antojo de Carnitas?
-                </h2>
-                <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
-                  Venta al Menudeo y Eventos
-                </p>
-              </div>
+            {/* Fondo Decorativo */}
+            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div className="absolute -right-8 -top-8 text-green-50 transform rotate-12 transition-transform duration-700 group-hover:rotate-0 group-hover:scale-110 pointer-events-none">
+                <MessageCircle size={280} />
             </div>
-            <p className="text-slate-600 mb-8">
-              Haz tu pedido para llevar o recoge en tienda. Respuesta inmediata
-              para comida caliente.
-            </p>
-            <a
-              href="https://wa.me/524436721870"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-green-500 text-white py-4 font-black uppercase tracking-widest rounded-lg hover:bg-green-600 transition-colors shadow-lg shadow-green-200"
-            >
-              <MessageCircle size={20} /> Pedir por WhatsApp
-            </a>
+
+            {/* Contenido Superior */}
+            <div className="relative z-10 p-6 md:p-8">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 md:mb-6 shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Respuesta Inmediata
+              </div>
+
+              {/* Título Adaptable */}
+              <h2 className="text-2xl md:text-4xl font-black uppercase text-slate-900 mb-2 leading-tight">
+                ¿Antojo de <br/>
+                <span className="text-green-600">Carnitas?</span>
+              </h2>
+              <p className="text-slate-500 font-medium text-sm md:text-lg max-w-xs leading-relaxed">
+                 Hacer tu pedido es tan fácil como enviar un mensaje.
+              </p>
+            </div>
+
+            {/* Contenido Inferior (CTA) */}
+            <div className="relative z-10 p-6 md:p-8 pt-0 mt-auto">
+               {/* Info Box - Oculto en móbiles muy pequeños si es necesario, o reducido */}
+               <div className="bg-slate-50 p-3 md:p-4 rounded-xl mb-4 md:mb-6 border border-slate-100 shadow-sm relative group-hover:border-green-200 transition-colors">
+                  <div className="flex items-center gap-2 text-slate-600 mb-1">
+                     <Clock size={16} className="text-green-600" />
+                     <span className="text-[10px] md:text-xs font-bold uppercase tracking-wide">Mejor Horario:</span>
+                  </div>
+                  <p className="text-slate-800 font-medium text-xs md:text-sm leading-snug">
+                     Pide antes de las <span className="text-green-600 font-black">12:00 PM</span>.
+                  </p>
+               </div>
+
+              <a
+                href="https://wa.me/524436721870"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 md:gap-3 w-full bg-green-500 text-white py-3 md:py-4 px-6 font-black uppercase tracking-widest text-sm md:text-base rounded-xl hover:bg-green-600 transition-all shadow-lg shadow-green-200 group/btn hover:-translate-y-1"
+              >
+                <MessageCircle size={20} />
+                Pedir por WhatsApp
+              </a>
+            </div>
           </motion.div>
 
+
+          {/* --- CARD 2: GALERÍA (Tema Oscuro / Visual) --- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-slate-900 p-8 rounded-2xl shadow-xl border-t-8 border-slate-500 text-white hover:shadow-2xl transition-shadow"
+            className="w-full relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all group flex flex-col justify-end bg-slate-900 min-h-[320px] md:min-h-[450px]"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-slate-700 p-4 rounded-full text-white">
-                <Phone size={32} />
-              </div>
-              <div>
-                <h2 className="text-2xl font-black uppercase">
-                  Negocios y Mayoreo
-                </h2>
-                <p className="text-slate-400 text-sm font-bold uppercase tracking-widest">
-                  Atención a Restaurantes
-                </p>
-              </div>
+            {/* IMAGEN DE FONDO */}
+            <div className="absolute inset-0 w-full h-full group-hover:scale-110 transition-transform duration-1000 ease-in-out">
+              <ImagenCloudinary
+                publicId={galleryImageId}
+                anchoDeseado={800} 
+                altText="Vista previa de la galería del obrador"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <p className="text-slate-300 mb-8">
-              Cotizaciones de canales, media canal o cortes primarios. Contacto
-              directo con administración.
-            </p>
-            <div className="flex gap-4">
-              <a
-                href="tel:+524436721870"
-                className="flex-1 flex items-center justify-center gap-2 bg-white text-slate-900 py-4 font-black uppercase tracking-widest rounded-lg hover:bg-slate-200 transition-colors"
-              >
-                <Phone size={20} /> Llamar
-              </a>
-              <a
-                href="mailto:ventas@carniceriaobrador.com"
-                className="flex-1 flex items-center justify-center gap-2 bg-transparent border-2 border-slate-600 text-white py-4 font-black uppercase tracking-widest rounded-lg hover:bg-slate-800 transition-colors"
-              >
-                <Mail size={20} /> Correo
-              </a>
+            
+            {/* Degradado (Un poco más fuerte en móvil para leer bien el texto pequeño) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-90 pointer-events-none"></div>
+
+            {/* Contenido */}
+            <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+              {/* Badge Superior */}
+              <div className="mb-auto">
+                <span className="inline-flex items-center gap-1.5 bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full uppercase tracking-widest shadow-sm">
+                  <Camera size={12} className="md:w-[14px] md:h-[14px]" /> Galería Exclusiva
+                </span>
+              </div>
+
+              {/* Bloque Animado Inferior */}
+              <div className="transform transition-transform duration-500 ease-out md:translate-y-[80px] md:group-hover:translate-y-0 mt-auto">
+                <h2 className="text-2xl md:text-4xl font-black uppercase text-white mb-2 md:mb-3 leading-tight drop-shadow-md">
+                  Conoce nuestras <br />
+                  <span className="text-slate-300">Instalaciones</span>
+                </h2>
+                
+                <p className="text-slate-200 text-sm md:text-lg mb-4 md:mb-6 font-medium leading-relaxed max-w-sm drop-shadow-sm">
+                  Echa un vistazo a la calidad de los cortes y el corazón de nuestro obrador.
+                </p>
+
+                {/* Botón */}
+                <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100 pb-1">
+                  <a
+                    href="https://produccionesamedias.pixieset.com/obradorcortes/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 md:gap-3 w-full bg-white text-slate-900 py-3 md:py-4 px-6 font-black uppercase tracking-widest text-sm md:text-base rounded-xl hover:bg-red-600 hover:text-white transition-all duration-300 group/btn shadow-lg shadow-slate-900/50"
+                  >
+                    Ver Portafolio
+                    <ExternalLink
+                      size={18}
+                      className="group-hover/btn:translate-x-1 transition-transform"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
+
         </div>
       </div>
 
@@ -147,19 +201,19 @@ const Contacto = () => {
             <div className="relative h-64 md:h-auto min-h-[400px]">
               {isDesktop ? (
                 <ImagenCloudinary
-                publicId={imageDesktopId}
-                anchoDeseado={1520}
-                aspectRatio="4:3"
-                altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              ):(
+                  publicId={imageDesktopId}
+                  anchoDeseado={1520}
+                  aspectRatio="4:3"
+                  altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
                 <ImagenCloudinary
-                publicId={imageMobileId}
-                anchoDeseado={800}
-                altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+                  publicId={imageMobileId}
+                  anchoDeseado={800}
+                  altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               )}
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
@@ -176,7 +230,7 @@ const Contacto = () => {
               </div>
             </div>
 
-            {/* Lado B: Mapa Funcional */}
+            {/* Mapa Funcional */}
             <div className="relative bg-slate-100 h-64 md:h-auto min-h-[400px]">
               <iframe
                 title="Mapa Ubicación Carnicería"
@@ -185,7 +239,6 @@ const Contacto = () => {
                 loading="lazy"
               ></iframe>
 
-              {/* Botón Flotante sobre el Mapa */}
               <div className="absolute bottom-8 right-8 left-8 md:left-auto">
                 <a
                   href={googleMapsDirectionsUrl}
@@ -201,85 +254,183 @@ const Contacto = () => {
         </div>
       </motion.section>
 
-      {/* --- HORARIOS Y FAQ (LAYOUT COMBINADO) --- */}
+      {/* --- SECCIÓN INFERIOR: HORARIOS Y FAQ MEJORADOS --- */}
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* HORARIOS REDISEÑADOS */}
+          {/* HORARIOS REDISEÑADOS CON ALTO CONTRASTE */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="md:col-span-5 bg-slate-900 text-white p-10 rounded-2xl shadow-lg h-fit"
+            className="lg:col-span-5 shadow-2xl rounded-2xl overflow-hidden h-fit flex flex-col font-sans"
           >
-            <h3 className="text-2xl font-black uppercase mb-8 flex items-center gap-3">
-              <Clock className="text-red-500" /> Horarios
-            </h3>
-
-            <div className="space-y-8">
-              <div className="border-l-4 border-white pl-6">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                  Cortes y Mayoreo
-                </p>
-                <h4 className="text-xl font-bold mb-1">Obrador Industrial</h4>
-                <p className="text-lg">Lunes a Sábado</p>
-                <p className="text-3xl font-black text-red-500">
-                  7:00 AM - 6:00 PM
-                </p>
+            {/* Encabezado General */}
+            <div className="bg-white p-6 border-b border-slate-100 flex items-center gap-3">
+              <div className="bg-slate-900 p-2 rounded-lg text-white shadow-lg shadow-slate-200">
+                <Clock size={24} strokeWidth={2.5} />
               </div>
+              <h3 className="text-xl font-black uppercase text-slate-900 tracking-wide">
+                Horarios de Atención
+              </h3>
+            </div>
 
-              <div className="border-l-4 border-red-600 pl-6">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                  Venta de Comida
-                </p>
-                <h4 className="text-xl font-bold mb-1">Carnitas y Tacos</h4>
-                <p className="text-lg">Todos los días</p>
-                <p className="text-3xl font-black text-white">
-                  8:00 AM - 3:00 PM
-                </p>
-                <p className="text-xs text-slate-400 mt-1 italic">
-                  * O hasta agotar existencia
+            {/* BLOQUE 1: OBRADOR (Industrial / Oscuro) */}
+            <div className="bg-slate-900 p-8 text-white relative overflow-hidden group">
+              {/* Icono decorativo de fondo */}
+              <Truck className="absolute -right-4 -bottom-4 text-slate-800 w-32 h-32 opacity-20 transform -rotate-12 group-hover:scale-110 transition-transform duration-700" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="bg-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest text-slate-300 border border-slate-600">
+                    Carniceria
+                  </span>
+                </div>
+
+                <div className="space-y-5">
+                  <div className="flex flex-col">
+                    <span className="text-slate-400 text-sm font-bold uppercase mb-1 flex items-center gap-2">
+                      <Calendar size={14} /> Lunes a Sábado
+                    </span>
+                    <span className="text-3xl md:text-4xl font-black tracking-tight text-white">
+                      6:00{" "}
+                      <span className="text-lg font-bold text-slate-500">
+                        AM
+                      </span>{" "}
+                      - 5:00{" "}
+                      <span className="text-lg font-bold text-slate-500">
+                        PM
+                      </span>
+                    </span>
+                  </div>
+                  <div className="w-full h-px bg-slate-800" /> {/* Separador */}
+                  <div className="flex flex-col">
+                    <span className="text-slate-400 text-sm font-bold uppercase mb-1 flex items-center gap-2">
+                      <Calendar size={14} /> Domingos
+                    </span>
+                    <span className="text-2xl md:text-3xl font-black tracking-tight text-white">
+                      6:00{" "}
+                      <span className="text-base font-bold text-slate-500">
+                        AM
+                      </span>{" "}
+                      - 3:00{" "}
+                      <span className="text-base font-bold text-slate-500">
+                        PM
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* BLOQUE 2: COMIDA (Vibrante / Rojo) */}
+            <div className="bg-red-600 p-8 text-white relative overflow-hidden group">
+              {/* Icono decorativo de fondo */}
+              <MessageCircle className="absolute -right-2 top-10 text-red-800 w-32 h-32 opacity-20 transform rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="bg-white/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest text-white border border-white/30 backdrop-blur-sm">
+                    Carnitas y Tacos
+                  </span>
+                </div>
+
+                <div className="space-y-5">
+                  <div className="flex flex-col">
+                    <span className="text-red-200 text-sm font-bold uppercase mb-1 flex items-center gap-2">
+                      <Calendar size={14} /> Lunes a Viernes
+                    </span>
+                    <span className="text-3xl md:text-4xl font-black tracking-tight">
+                      9:00{" "}
+                      <span className="text-lg font-bold text-red-300">AM</span>{" "}
+                      - 4:00{" "}
+                      <span className="text-lg font-bold text-red-300">PM</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-px bg-red-500" /> {/* Separador */}
+                  <div className="flex flex-col">
+                    <span className="text-red-200 text-sm font-bold uppercase mb-1 flex items-center gap-2">
+                      <Calendar size={14} /> Sábados y Domingos
+                    </span>
+                    <span className="text-2xl md:text-3xl font-black tracking-tight">
+                      8:00{" "}
+                      <span className="text-base font-bold text-red-300">
+                        AM
+                      </span>{" "}
+                      - 4:00{" "}
+                      <span className="text-base font-bold text-red-300">
+                        PM
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-red-200 mt-6 font-medium italic opacity-80 flex items-center justify-end gap-1">
+                  <Info size={12} /> * O hasta agotar existencia
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Columna Der: FAQ */}
+          {/* FAQ REDISEÑADO */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.0 }}
-            className="md:col-span-7"
+            className="lg:col-span-7"
           >
-            <h3 className="text-2xl font-black uppercase text-slate-900 mb-8">
-              Preguntas Frecuentes
-            </h3>
+            <div className="flex items-center gap-3 mb-6 pb-4 md:pl-2">
+              <div className="bg-white border border-slate-200 p-3 rounded-lg text-slate-900">
+                <Info size={24} />
+              </div>
+              <h3 className="text-2xl font-black uppercase text-slate-900">
+                Información Útil
+              </h3>
+            </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {/* FAQ 1: Pagos */}
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-red-600 transition-colors group">
-                <div className="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-100 group-hover:text-red-600 transition-colors">
+            <div className="space-y-4">
+              {/* FAQ Item 1 */}
+              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row gap-5 items-start">
+                <div className="bg-blue-50 text-blue-600 p-3 rounded-full shrink-0">
                   <CreditCard size={24} />
                 </div>
-                <h4 className="font-bold uppercase mb-2">Métodos de Pago</h4>
-                <p className="text-sm text-slate-500">
-                  Aceptamos efectivo, transferencias bancarias y todas las
-                  tarjetas de crédito/débito (Visa, MC, Amex).
-                </p>
+                <div>
+                  <h4 className="font-bold uppercase text-lg mb-2 text-slate-900">
+                    Métodos de Pago
+                  </h4>
+                  <p className="text-slate-600 leading-relaxed">
+                    Para tu comodidad aceptamos{" "}
+                    <strong>efectivo y tarjetas de crédito o débito</strong>.
+                    También contamos con terminal para todas las tarjetas de
+                    crédito y débito (Visa, Mastercard, Amex).
+                  </p>
+                </div>
               </div>
 
-              {/* FAQ 3: Domicilio */}
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-red-600 transition-colors group">
-                <div className="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-100 group-hover:text-red-600 transition-colors">
+              {/* FAQ Item 2 */}
+              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row gap-5 items-start">
+                <div className="bg-green-50 text-green-600 p-3 rounded-full shrink-0">
                   <Truck size={24} />
                 </div>
-                <h4 className="font-bold uppercase mb-2">
-                  Servicio a Domicilio
-                </h4>
-                <p className="text-sm text-slate-500">
-                  <strong>Mayoreo:</strong> Envío gratis en Morelia (min. 10kg).
-                  <br />
-                  <strong>Carnitas:</strong> A través de Uber Eats o mandaditos
-                  locales.
-                </p>
+                <div>
+                  <h4 className="font-bold uppercase text-lg mb-2 text-slate-900">
+                    Envíos y Domicilio
+                  </h4>
+                  <div className="space-y-2 text-slate-600">
+                    <p>
+                      <strong className="text-slate-900">Carnes:</strong>{" "}
+                      Contamos con ruta de entrega gratis en Morelia.
+                    </p>
+                    <div className="h-px bg-slate-100 w-full my-2"></div>
+                    <p>
+                      <strong className="text-slate-900">
+                        Carnitas:
+                      </strong>{" "}
+                      Puedes hacer tu pedido para recoger en tienda o por
+                      servicio a domicilio vía WhatsApp.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
