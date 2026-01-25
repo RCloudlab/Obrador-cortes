@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import ImagenCloudinary from "../hooks/imageCloudinary";
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 
 const Contacto = () => {
   const googleMapsDirectionsUrl = `https://www.google.com/maps/place/CARNITAS+CORTES/@19.7161799,-101.1709329,17z/data=!4m6!3m5!1s0x842d0fe64227a87d:0x41bf4a7460905920!8m2!3d19.7161629!4d-101.170983!16s%2Fg%2F11fs07s3rf?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D`;
@@ -44,27 +43,6 @@ const Contacto = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24 font-sans text-slate-900">
-      {/* --- SEO IMPLEMENTATION --- */}
-      <Helmet>
-        <title>Contacto y Ubicación | Carnicería Obrador Cortés</title>
-        <meta
-          name="description"
-          content="Visítanos en la Central de Abastos Morelia. Venta de carnitas, cortes de carne al mayoreo y menudeo. Consulta nuestros horarios y ubicación aquí."
-        />
-        <meta
-          name="keywords"
-          content="carnicería morelia, carnitas, obrador, cortes de carne, central de abastos, mayoreo de carne"
-        />
-        <meta
-          property="og:title"
-          content="Contacto | Carnicería Obrador Cortés"
-        />
-        <meta
-          property="og:description"
-          content="Calidad y sabor en Morelia. Ubicación, horarios y contacto directo."
-        />
-        <meta property="og:type" content="business.business" />
-      </Helmet>
 
       {/* --- ENCABEZADO --- */}
       <motion.section
