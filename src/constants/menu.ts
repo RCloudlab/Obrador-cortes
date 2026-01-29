@@ -11,7 +11,7 @@ export const beefCategories = {
         name: "Diezmillo con hueso",
         spec: "Marmoleo intenso, corte con hueso",
         use: "Asador/Carbón",
-        imgId: "diezmillo_hueso_corte",
+        imgId: "diezmillo_con_hueso_corte",
       },
       {
         name: "Chuleta del 7",

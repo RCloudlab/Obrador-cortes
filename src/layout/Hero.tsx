@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const imageDesktopId = "pruebaKit";
-  const imageMobileId = "phoneBAck";
+  const imageDesktopId = "DSC03487_cjttkc";
+  const imageMobileId = "DSC03511_jpwenn";
 
   const [isDesktop, setIsDesktop] = useState<boolean>(() =>
     typeof window !== "undefined" ? window.innerWidth >= 768 : false
@@ -33,7 +33,7 @@ const Hero = () => {
             publicId={imageDesktopId}
             anchoDeseado={1520}
             altText="Cortes de carne premium"
-            className="w-full h-full object-cover object-center opacity-50"
+            className="w-full h-full object-cover object-center opacity-40"
           />
         ) : (
           <ImagenCloudinary
