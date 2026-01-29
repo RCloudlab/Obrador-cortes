@@ -43,7 +43,6 @@ const Contacto = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24 font-sans text-slate-900">
-
       {/* --- ENCABEZADO --- */}
       <motion.section
         initial={{ opacity: 0, y: -20 }}
@@ -61,13 +60,9 @@ const Contacto = () => {
           La mejor calidad en carnes y el sabor tradicional que buscas.
         </p>
       </motion.section>
-
-      {/* --- DIRECTORIO Y GALERÍA (GRID) --- */}
-      {/* --- DIRECTORIO Y GALERÍA (GRID) --- */}
       <div className="max-w-7xl mx-auto px-4 mb-20">
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
           
-          {/* --- CARD 1: CARNITAS (Tema Claro / Funcional) --- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
