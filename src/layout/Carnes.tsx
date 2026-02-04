@@ -32,9 +32,6 @@ const Carnes = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900">
-      {/* --------------------------------------------------------------------------
-          A. HERO CORPORATIVO
-      -------------------------------------------------------------------------- */}
       <section className="relative w-full h-[80vh] min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-slate-900">
           <div className="absolute inset-0 bg-slate-950/60 z-10"></div>
@@ -44,6 +41,7 @@ const Carnes = () => {
             <ImagenCloudinary
               publicId={imageDesktopId}
               anchoDeseado={1520}
+              aspectRatio="16:9" 
               altText="Cortes de carne premium"
               className="w-full h-full object-cover object-center"
             />
