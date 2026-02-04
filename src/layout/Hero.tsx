@@ -31,7 +31,8 @@ const Hero = () => {
         {isDesktop ? (
           <ImagenCloudinary
             publicId={imageDesktopId}
-            anchoDeseado={1520}
+            anchoDeseado={1920}
+            aspectRatio="16:9" 
             altText="Cortes de carne premium"
             className="w-full h-full object-cover object-center opacity-40"
           />
