@@ -62,22 +62,19 @@ const Contacto = () => {
       </motion.section>
       <div className="max-w-7xl mx-auto px-4 mb-20">
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-          
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full bg-white relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group min-h-[320px] md:min-h-[450px]"
+            className="w-full bg-white relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group min-h-[320px] md:min-h-[420px]"
           >
             {/* Fondo Decorativo */}
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px]"></div>
             <div className="absolute -right-8 -top-8 text-green-50 transform rotate-12 transition-transform duration-700 group-hover:rotate-0 group-hover:scale-110 pointer-events-none">
-                <MessageCircle size={280} />
+              <MessageCircle size={280} />
             </div>
 
-            {/* Contenido Superior */}
             <div className="relative z-10 p-6 md:p-8">
-              {/* Badge */}
               <div className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 md:mb-6 shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -86,28 +83,28 @@ const Contacto = () => {
                 Respuesta Inmediata
               </div>
 
-              {/* Título Adaptable */}
               <h2 className="text-2xl md:text-4xl font-black uppercase text-slate-900 mb-2 leading-tight">
-                ¿Antojo de <br/>
+                ¿Antojo de <br />
                 <span className="text-green-600">Carnitas?</span>
               </h2>
               <p className="text-slate-500 font-medium text-sm md:text-lg max-w-xs leading-relaxed">
-                 Hacer tu pedido es tan fácil como enviar un mensaje.
+                Hacer tu pedido es tan fácil como enviar un mensaje.
               </p>
             </div>
 
-            {/* Contenido Inferior (CTA) */}
             <div className="relative z-10 p-6 md:p-8 pt-0 mt-auto">
-               {/* Info Box - Oculto en móbiles muy pequeños si es necesario, o reducido */}
-               <div className="bg-slate-50 p-3 md:p-4 rounded-xl mb-4 md:mb-6 border border-slate-100 shadow-sm relative group-hover:border-green-200 transition-colors">
-                  <div className="flex items-center gap-2 text-slate-600 mb-1">
-                     <Clock size={16} className="text-green-600" />
-                     <span className="text-[10px] md:text-xs font-bold uppercase tracking-wide">Mejor Horario:</span>
-                  </div>
-                  <p className="text-slate-800 font-medium text-xs md:text-sm leading-snug">
-                     Pide antes de las <span className="text-green-600 font-black">12:00 PM</span>.
-                  </p>
-               </div>
+              <div className="bg-slate-50 p-3 md:p-4 rounded-xl mb-4 md:mb-6 border border-slate-100 shadow-sm relative group-hover:border-green-200 transition-colors">
+                <div className="flex items-center gap-2 text-slate-600 mb-1">
+                  <Clock size={16} className="text-green-600" />
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-wide">
+                    Mejor Horario:
+                  </span>
+                </div>
+                <p className="text-slate-800 font-medium text-xs md:text-sm leading-snug">
+                  Pide antes de las{" "}
+                  <span className="text-green-600 font-black">12:00 PM</span>.
+                </p>
+              </div>
 
               <a
                 href="https://wa.me/524436721870"
@@ -121,24 +118,34 @@ const Contacto = () => {
             </div>
           </motion.div>
 
-
           {/* --- CARD 2: GALERÍA (Tema Oscuro / Visual) --- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="w-full relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all group flex flex-col justify-end bg-slate-900 min-h-[320px] md:min-h-[450px]"
+            className="w-full relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all group flex flex-col justify-end bg-slate-900 min-h-[320px] md:min-h-[420px]"
           >
             {/* IMAGEN DE FONDO */}
             <div className="absolute inset-0 w-full h-full group-hover:scale-110 transition-transform duration-1000 ease-in-out">
-              <ImagenCloudinary
-                publicId={galleryImageId}
-                anchoDeseado={800} 
-                altText="Vista previa de la galería del obrador"
-                className="w-full h-full object-cover"
-              />
+              {isDesktop ? (
+                <ImagenCloudinary
+                  publicId={galleryImageId}
+                  anchoDeseado={800}
+                  aspectRatio="4:3"
+                  altText="Vista previa de la galería del obrador"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <ImagenCloudinary
+                  publicId={galleryImageId}
+                  anchoDeseado={800}
+                  aspectRatio="5:4"
+                  altText="Fachada Carnicería Obrador en Central de Abastos Morelia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
             </div>
-            
+
             {/* Degradado (Un poco más fuerte en móvil para leer bien el texto pequeño) */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-90 pointer-events-none"></div>
 
@@ -147,7 +154,8 @@ const Contacto = () => {
               {/* Badge Superior */}
               <div className="mb-auto">
                 <span className="inline-flex items-center gap-1.5 bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full uppercase tracking-widest shadow-sm">
-                  <Camera size={12} className="md:w-[14px] md:h-[14px]" /> Galería Exclusiva
+                  <Camera size={12} className="md:w-[14px] md:h-[14px]" />{" "}
+                  Galería Exclusiva
                 </span>
               </div>
 
@@ -157,10 +165,14 @@ const Contacto = () => {
                   Conoce nuestras <br />
                   <span className="text-slate-300">Instalaciones</span>
                 </h2>
-                
-                <p className="text-slate-200 text-sm md:text-lg mb-4 md:mb-6 font-medium leading-relaxed max-w-sm drop-shadow-sm">
-                  Echa un vistazo a la calidad de los cortes y el corazón de nuestro obrador.
-                </p>
+                {isDesktop ? (
+                  <p className="text-slate-200 text-sm md:text-lg mb-4 md:mb-6 font-medium leading-relaxed max-w-sm drop-shadow-sm">
+                    Echa un vistazo a la calidad de los cortes y el corazón de
+                    nuestro obrador.
+                  </p>
+                ) : (
+                  <></>
+                )}
 
                 {/* Botón */}
                 <div className="md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100 pb-1">
@@ -180,7 +192,6 @@ const Contacto = () => {
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
 
@@ -418,9 +429,7 @@ const Contacto = () => {
                     </p>
                     <div className="h-px bg-slate-100 w-full my-2"></div>
                     <p>
-                      <strong className="text-slate-900">
-                        Carnitas:
-                      </strong>{" "}
+                      <strong className="text-slate-900">Carnitas:</strong>{" "}
                       Puedes hacer tu pedido para recoger en tienda o por
                       servicio a domicilio vía WhatsApp.
                     </p>
